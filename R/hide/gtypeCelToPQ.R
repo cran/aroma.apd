@@ -119,7 +119,8 @@ setMethodS3("gtypeCelToPQ", "default", function(filename, units=NULL, ..., cdf=N
   res <- matrix(NA, nrow=nbrOfUnits, ncol=4*nbrOfQuartets, dimnames=dimnames);
   cc <- 1:ncol(res);
   for (uu in 1:nbrOfUnits) {
-    res[uu,cc] <- cel[[uu]][[1]][[1]][cc];
+    # ... cel[[uu]][[1]][[1]]
+    res[uu,cc] <- .subset2(.subset2(.subset2(cel, uu), 1), 1)[cc];
   }
 
   verbose && exit(verbose);
@@ -129,6 +130,8 @@ setMethodS3("gtypeCelToPQ", "default", function(filename, units=NULL, ..., cdf=N
 
 ############################################################################
 # HISTORY:
+# 2006-03-28
+# o Using .subset2() instead.
 # 2006-03-12
 # o Added argument 'nbrOfQuartets'.
 # 2006-03-11
