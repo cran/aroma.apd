@@ -1,4 +1,4 @@
-58edcc23e275fdc362eb96b54e004770 *DESCRIPTION
+1cd97658dc0544b872eefa9d5d3a30f7 *DESCRIPTION
 be57e69f8a31ee3fe193df8699d1b812 *NAMESPACE
 ae712a0e32cf4515a5486880e5b24f50 *R/000.R
 7c3ad2053f551b0b60be50a7c713595d *R/999.NonDocumentedObjects.R
@@ -26,7 +26,7 @@ cff91f52ebbe9cfe9893f302b3eb3b78 *incl/createApd.Rex
 427a0fc09290dd34142005bf84027965 *incl/readApdRectangle.Rex
 b2ec2eb006217ce6b4a296bf191234a2 *incl/readApdUnits.Rex
 37fede7a24879f860b0ca9706a562382 *incl/writeApdMap.Rex
-77b321267203e8af83be2241de8254e0 *inst/NEWS
+aa2bfebbba175940bc4d90b2152e89e8 *inst/NEWS
 e6ef13791edb3b9c4befadfc2aecf183 *man/Non-documented_objects.Rd
 baa6998a3253e8042620d14fe4569b83 *man/aroma.apd-package.Rd
 26c0b19231846efdcf4bb1eccf40292d *man/cdfToApdMap.Rd
