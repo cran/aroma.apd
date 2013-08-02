@@ -3,12 +3,12 @@
 #
 # @title "Reads a spatial subset of probe-level data from Affymetrix APD files"
 #
-# @synopsis 
-# 
+# @synopsis
+#
 # \description{
 #   @get "title".
 # }
-# 
+#
 # \arguments{
 #   \item{filename}{The pathname of the APD file.}
 #   \item{xrange}{A @numeric @vector of length two giving the left
@@ -17,10 +17,10 @@
 #     and bottom coordinates of the cells to be returned.}
 #   \item{...}{Additional arguments passed to @see "readApd".}
 #   \item{asMatrix}{If @TRUE, the APD data fields are returned as
-#     matrices with element (1,1) corresponding to cell 
+#     matrices with element (1,1) corresponding to cell
 #     (xrange[1],yrange[1]).}
 # }
-# 
+#
 # \value{
 #   A named @list APD structure similar to what @see "readApd".
 #   In addition, if \code{asMatrix} is @TRUE, the APD data fields
@@ -28,17 +28,19 @@
 # }
 #
 # @author
-# 
+#
 # @examples "../incl/readApdRectangle.Rex"
-# 
+#
 # \seealso{
 #   The @see "readApd" method is used internally.
 # }
-# 
+#
 # @keyword "file"
 # @keyword "IO"
 #*/#########################################################################
 setMethodS3("readApdRectangle", "default", function(filename, xrange=c(0,Inf), yrange=c(0,Inf), ..., asMatrix=TRUE) {
+  require("affxparser") || throw("Package not loaded: affxparser");
+
   # Get the chip layout from the APD header
   header <- readApdHeader(filename);
   chipType <- header$chipType;
@@ -61,9 +63,10 @@ setMethodS3("readApdRectangle", "default", function(filename, xrange=c(0,Inf), y
   xx <- xrange[1]:xrange[2];
 
   cells <- matrix(offsets, ncol=length(yy), nrow=length(xx), byrow=TRUE);
-  # Cell indices are one-based in R 
+  # Cell indices are one-based in R
   cells <- cells + xx + 1;
-  rm(xrange, yrange, yy, xx, offsets);
+  # Not needed anymore
+  xrange <- yrange <- yy <- xx <- offsets <- NULL;
 
   # Read APD data
   apd <- readApd(filename, indices=cells, ...);
@@ -71,7 +74,7 @@ setMethodS3("readApdRectangle", "default", function(filename, xrange=c(0,Inf), y
   # Rearrange each field into a matrix?
   if (asMatrix) {
     nrow <- nrow(cells);
-    rm(cells);
+    cells <- NULL; # Not needed anymore
 
     # Cell-value fields
     fields <- c("x", "y", "intensities", "stdvs", "pixels");
@@ -88,4 +91,4 @@ setMethodS3("readApdRectangle", "default", function(filename, xrange=c(0,Inf), y
 # HISTORY:
 # 2006-03-30
 # o Created from readCelRectangle.R in affxparser.
-############################################################################  
+############################################################################

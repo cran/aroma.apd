@@ -16,7 +16,9 @@
  Search for APD map files in multiple directories.
 }
 
-\usage{\method{findApdMap}{default}(mapType=NULL, paths=NULL, pattern="[.](a|A)(p|P)(m|M)$", ...)}
+\usage{
+\method{findApdMap}{default}(mapType=NULL, paths=NULL, pattern="[.](a|A)(p|P)(m|M)$", ...)
+}
 
 \arguments{
  \item{mapType}{A \code{\link[base]{character}} string of the map type to search for.}
@@ -24,7 +26,7 @@
    The current directory is always searched at the beginning.
    If \code{\link[base]{NULL}}, default paths are searched.  For more details, see below.}
  \item{pattern}{A regular expression file name pattern to match.}
- \item{...}{Additional arguments passed to \code{\link[affxparser]{findFiles}}.}
+ \item{...}{Additional arguments passed to \code{\link[R.utils]{findFiles}}.}
 }
 
 \value{
@@ -47,7 +49,7 @@
   for more details.
 }
 
-\author{Henrik Bengtsson (\url{http://www.braju.com/R/})}
+\author{Henrik Bengtsson}
 
 
 
