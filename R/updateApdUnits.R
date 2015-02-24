@@ -42,7 +42,7 @@
 # @keyword "IO"
 #*/#########################################################################
 setMethodS3("updateApdUnits", "default", function(filename, units=NULL, data, ..., cdf=NULL, stratifyBy=c("nothing", "pmmm", "pm", "mm"), verbose=FALSE) {
-  require("affxparser") || throw("Package not loaded: affxparser");
+  requireNamespace("affxparser") || throw("Package not loaded: affxparser");
 
 
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -122,13 +122,13 @@ setMethodS3("updateApdUnits", "default", function(filename, units=NULL, data, ..
     verbose && exit(verbose);
 
     verbose && enter(verbose, "Searching for chip type '", chipType, "'");
-    cdfFile <- findCdf(chipType=chipType);
+    cdfFile <- affxparser::findCdf(chipType=chipType);
     if (length(cdfFile) == 0) {
       # If not found, try also where the first APD file is
       opwd <- getwd();
       on.exit(setwd(opwd));
       setwd(dirname(filename));
-      cdfFile <- findCdf(chipType=chipType);
+      cdfFile <- affxparser::findCdf(chipType=chipType);
       setwd(opwd);
     }
     verbose && exit(verbose);
@@ -143,7 +143,7 @@ setMethodS3("updateApdUnits", "default", function(filename, units=NULL, data, ..
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   if (is.null(cdf)) {
     verbose && enter(verbose, "Reading cell indices from CDF file");
-    cdf <- readCdfCellIndices(cdfFile, units=units, stratifyBy=stratifyBy);
+    cdf <- affxparser::readCdfCellIndices(cdfFile, units=units, stratifyBy=stratifyBy);
     cdfType <- "flat";
     verbose && exit(verbose);
   }
@@ -190,15 +190,17 @@ setMethodS3("updateApdUnits", "default", function(filename, units=NULL, data, ..
     indices <- unlist(cdf, use.names=FALSE);
   } else if (cdfType == "indices") {
     # Clean up CDF list structure from other fields than "indices".
-    indices <- applyCdfGroups(cdf, cdfGetFields, "indices");
+    cdfGetFields <- affxparser::cdfGetFields;
+    indices <- affxparser::applyCdfGroups(cdf, cdfGetFields, "indices");
     indices <- unlist(cdf, use.names=FALSE);
   } else {
     verbose && enter(verbose, "Calculating cell indices from (x,y) positions");
     verbose && enter(verbose, "Reading chip layout from CDF file");
-    cdfHeader <- readCdfHeader(cdfFile);
+    cdfHeader <- affxparser::readCdfHeader(cdfFile);
     verbose && exit(verbose);
-    x <- unlist(applyCdfGroups(cdf, cdfGetFields, "x"), use.names=TRUE);
-    y <- unlist(applyCdfGroups(cdf, cdfGetFields, "y"), use.names=TRUE);
+    cdfGetFields <- affxparser::cdfGetFields;
+    x <- unlist(affxparser::applyCdfGroups(cdf, cdfGetFields, "x"), use.names=TRUE);
+    y <- unlist(affxparser::applyCdfGroups(cdf, cdfGetFields, "y"), use.names=TRUE);
     ncol <- cdfHeader$cols;
     indices <- as.integer(y * ncol + x + 1);
     x <- y <- ncol <- NULL; # Not needed anymore

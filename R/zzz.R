@@ -1,15 +1,17 @@
+## covr: skip=all
+
 .onLoad <- function(libname, pkgname) {
-  ns <- getNamespace(pkgname);
-  pkg <- Package(pkgname);
-  assign(pkgname, pkg, envir=ns);
+  ns <- getNamespace(pkgname)
+  pkg <- Package(pkgname)
+  assign(pkgname, pkg, envir=ns)
 } # .onLoad()
 
 
 .onAttach <- function(libname, pkgname) {
-  pkg <- get(pkgname, envir=getNamespace(pkgname));
+  pkg <- get(pkgname, envir=getNamespace(pkgname))
   # require("affxparser") - install if missing
-  .requireBiocPackage("affxparser", neededBy=pkgname);
-  startupMessage(pkg);
+  .requireBiocPackage("affxparser", neededBy=pkgname)
+  startupMessage(pkg)
 }
 
 

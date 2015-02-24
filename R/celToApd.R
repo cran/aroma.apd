@@ -48,7 +48,7 @@
 # @keyword "IO"
 #*/#########################################################################
 setMethodS3("celToApd", "default", function(filename, apdFile=NULL, mapType="asChipType", writeMap=NULL, ..., verbose=FALSE) {
-  require("affxparser") || throw("Package not loaded: affxparser");
+  requireNamespace("affxparser") || throw("Package not loaded: affxparser");
 
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   # Validate arguments
@@ -87,7 +87,7 @@ setMethodS3("celToApd", "default", function(filename, apdFile=NULL, mapType="asC
   # Read CEL file
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   verbose && enter(verbose, "Reading CEL file")
-  cel <- readCel(filename);
+  cel <- affxparser::readCel(filename);
   verbose && exit(verbose);
 
   chipType <- cel$header$chiptype;
@@ -112,7 +112,7 @@ setMethodS3("celToApd", "default", function(filename, apdFile=NULL, mapType="asC
     readMap <- readApdMap(mapFile)$map;
     verbose && exit(verbose);
     verbose && enter(verbose, "Calculating write map from read map");
-    writeMap <- invertMap(readMap);
+    writeMap <- affxparser::invertMap(readMap);
     verbose && exit(verbose);
   }
 
@@ -120,8 +120,8 @@ setMethodS3("celToApd", "default", function(filename, apdFile=NULL, mapType="asC
   # Save APD file
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   verbose && enter(verbose, "Saving APD file '", apdFile, "'");
-  writeApd(apdFile, data=cel$intensities, chipType=chipType, mapType=mapType,
-                                                     writeMap=writeMap, ...);
+  writeApd(apdFile, data=cel$intensities, chipType=chipType,
+                       mapType=mapType, writeMap=writeMap, ...);
   verbose && exit(verbose);
 
   invisible(apdFile);

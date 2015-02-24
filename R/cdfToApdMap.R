@@ -39,7 +39,7 @@
 # @keyword "IO"
 #*/#########################################################################
 setMethodS3("cdfToApdMap", "default", function(filename, mapType=NULL, mapFile=NULL, mapPath=NULL, ..., verbose=FALSE) {
-  require("affxparser") || throw("Package not loaded: affxparser");
+  requireNamespace("affxparser") || throw("Package not loaded: affxparser");
 
 
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -49,7 +49,7 @@ setMethodS3("cdfToApdMap", "default", function(filename, mapType=NULL, mapFile=N
   filename <- Arguments$getReadablePathname(filename, mustExist=TRUE);
 
   # Get chip type from CDF header
-  header <- readCdfHeader(filename);
+  header <- affxparser::readCdfHeader(filename);
   chipType <- header$chiptype;
 
   # Argument 'mapType':
@@ -75,8 +75,8 @@ setMethodS3("cdfToApdMap", "default", function(filename, mapType=NULL, mapFile=N
 
 
   verbose && enter(verbose, "Creating read map from CDF file");
-  writeMap <- readCdfUnitsWriteMap(filename, ...);
-  readMap <- invertMap(writeMap);
+  writeMap <- affxparser::readCdfUnitsWriteMap(filename, ...);
+  readMap <- affxparser::invertMap(writeMap);
   verbose && exit(verbose);
 
 

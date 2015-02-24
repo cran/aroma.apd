@@ -59,8 +59,8 @@ for (file in files) {
 \author{Henrik Bengtsson}
 
 \references{
- [1] Affymetrix, \emph{Understanding Genotyping Probe Set Structure}, 2005.
-     \url{http://www.affymetrix.com/support/developer/whitepapers/genotyping_probe_set_structure.affx}\cr
+ [1] Affymetrix, \emph{Genotyping Probe Set Structure},
+     Developers' Network, White paper, 2005-2015.
 }
 
 

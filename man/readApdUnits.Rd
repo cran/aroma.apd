@@ -139,12 +139,6 @@ if (length(files) > 0 && require("affxparser")) {
   the read map was not given explicitly.
 }
 
-\references{
-  [1] Affymetrix Inc, Affymetrix GCOS 1.x compatible file formats,
-      June 14, 2005.
-      \url{http://www.affymetrix.com/support/developer/}
-}
-
 
 
 \keyword{file}

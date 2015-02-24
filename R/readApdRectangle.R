@@ -39,16 +39,16 @@
 # @keyword "IO"
 #*/#########################################################################
 setMethodS3("readApdRectangle", "default", function(filename, xrange=c(0,Inf), yrange=c(0,Inf), ..., asMatrix=TRUE) {
-  require("affxparser") || throw("Package not loaded: affxparser");
+  requireNamespace("affxparser") || throw("Package not loaded: affxparser");
 
   # Get the chip layout from the APD header
   header <- readApdHeader(filename);
   chipType <- header$chipType;
-  cdfFile <- findCdf(chipType);
+  cdfFile <- affxparser::findCdf(chipType);
   if (is.null(cdfFile)) {
     throw("Could not find the CDF file for the APD's chip type: ", chipType);
   }
-  header <- readCdfHeader(cdfFile);
+  header <- affxparser::readCdfHeader(cdfFile);
   nrow <- header$rows;
   ncol <- header$cols;
 
