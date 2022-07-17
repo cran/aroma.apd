@@ -1,7 +1,7 @@
 ########################################################################/**
 # @RdocDefault gtypeCelToPQ
 #
-# @title "Function to immitate Affymetrix' gtype\_cel\_to\_pq software"
+# @title "Function to immitate Affymetrix' gtype_cel_to_pq software"
 #
 # \description{
 #  @get "title".

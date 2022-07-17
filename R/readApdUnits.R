@@ -281,7 +281,7 @@ setMethodS3("readApdUnits", "default", function(filenames, units=NULL, ..., tran
 
   verbose && enter(verbose, "Reading ", nbrOfUnits, "*", nbrOfCells/nbrOfUnits, "=", nbrOfCells, " cells from ", nbrOfArrays, " APD files");
 
-  for (kk in seq(length=nbrOfArrays)) {
+  for (kk in seq_len(nbrOfArrays)) {
     filename <- filenames[kk];
 
     verbose && enter(verbose, "Reading APD data for array #", kk);

@@ -68,7 +68,7 @@ setMethodS3("updateApdHeader", "default", function(filename, path=NULL, ..., ver
   }
 
   # Add to current header
-  for (kk in seq(along=args)) {
+  for (kk in seq_along(args)) {
     name <- names(args)[kk];
     value <- args[[kk]];
     header[[name]] <- value;
@@ -78,7 +78,7 @@ setMethodS3("updateApdHeader", "default", function(filename, path=NULL, ..., ver
   # Wrap up the APD header in the file vector header comments
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   comments <- c();
-  for (kk in seq(along=header)) {
+  for (kk in seq_along(header)) {
     key <- names(header)[kk];
     value <- header[[kk]];
     valueStr <- paste(key, "=", value, sep="");

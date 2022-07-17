@@ -14,7 +14,7 @@
 #
 # \section{Installation and updates}{
 #
-#   To install this package, see \url{http://www.braju.com/R/}.
+#   To install this package, see \url{https://www.braju.com/R/}.
 # }  
 #
 # \section{To get started}{

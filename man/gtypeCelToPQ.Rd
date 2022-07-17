@@ -10,10 +10,10 @@
 \alias{gtypeCelToPQ.default}
 \alias{gtypeCelToPQ}
 
-\title{Function to immitate Affymetrix' gtype\_cel\_to\_pq software}
+\title{Function to immitate Affymetrix' gtype_cel_to_pq software}
 
 \description{
- Function to immitate Affymetrix' gtype\_cel\_to\_pq software.
+ Function to immitate Affymetrix' gtype_cel_to_pq software.
 }
 
 \usage{

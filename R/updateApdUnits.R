@@ -158,7 +158,7 @@ setMethodS3("updateApdUnits", "default", function(filename, units=NULL, data, ..
   }
 
   # For each CDF unit
-  for (uu in seq(length=nbrOfUnits)) {
+  for (uu in seq_len(nbrOfUnits)) {
     unit <- .subset2(cdf, uu);  # Faster than cdf[[uu]]
     cdfGroups <- .subset2(unit, "groups");
     dataUnit <- .subset2(data, uu);

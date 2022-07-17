@@ -108,7 +108,7 @@ setMethodS3("createApd", "default", function(filename, nbrOfCells, dataType=c("f
   # Wrap up the APD header in the file vector header comments
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   comments <- c();
-  for (kk in seq(along=header)) {
+  for (kk in seq_along(header)) {
     key <- names(header)[kk];
     value <- header[[kk]];
     if (!is.null(value)) {
