@@ -59,6 +59,7 @@
 \author{Henrik Bengtsson}
 
 \examples{
+\dontshow{if (interactive()) \{}
 
 # Float precision
 .Machine$float.eps <- (2^((8-4)*8)*.Machine$double.eps)
@@ -104,7 +105,7 @@ stopifnot(all.equal(signals, apd$intensities, tolerance=tol))
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # 4. Re-read the signals for a subset of probes
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-if (require("affxparser")) {
+if (require("affxparser") && FALSE) {
   cdfFile <- findCdf(chipType)
   if (length(cdfFile) > 0) {
  
@@ -136,6 +137,8 @@ if (require("affxparser")) {
 # 4. Clean up
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 file.remove(pathname)
+
+\dontshow{\}}
 }
 
 \seealso{

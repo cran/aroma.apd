@@ -1,4 +1,11 @@
-# Version 0.6.0-9002 (2022-07-17)
+# Version 0.7.0 (2023-06-21)
+
+## Miscellaneous
+
+ * Importing `throw()` from **R.oo** instead of **R.methodsS3**.
+
+
+# Version 0.6.1 (2022-07-17)
 
 ## Miscellaneous
 

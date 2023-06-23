@@ -2,10 +2,10 @@
 # IMPORTS
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 importFrom("R.methodsS3", "setMethodS3")
-importFrom("R.methodsS3", "throw")
 
 importFrom("R.oo", "Package")
 importFrom("R.oo", "startupMessage")
+importFrom("R.oo", "throw")
 importFrom("R.oo", "trim")
 
 importFrom("R.utils", "Arguments")

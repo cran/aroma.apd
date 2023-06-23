@@ -46,7 +46,11 @@
 #
 # @author
 #
-# @examples "../incl/createApd.Rex"
+# \examples{
+# \dontshow{if (interactive()) \{}
+# @include "../incl/createApd.Rex"
+# \dontshow{\}}
+# }
 #
 # \seealso{
 #   @see "updateApd" and @see "readApd".

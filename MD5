@@ -1,13 +1,13 @@
-fc6774400c70bb4cf355d60f7d64ee00 *DESCRIPTION
-7d1358ecc10fdaa8a66c7883b292c186 *NAMESPACE
-58657a0ca59e7868e0141f3120d7f82f *NEWS.md
+82e12220fedd8f4863c6d7331e5a3d9b *DESCRIPTION
+c1415c3294f951c46651aec6be04a95d *NAMESPACE
+31ebfef1126a7e4d1d4917eb61d2d753 *NEWS.md
 694f1ab0fbb4bb254cc3b594c0999b7a *R/000.R
 bb242df82bfdf369aa75ff6deff5e123 *R/008.BioC.R
 7c3ad2053f551b0b60be50a7c713595d *R/999.NonDocumentedObjects.R
 b0ed029706da93f19b38ed72f31313cf *R/999.package.R
 0000e60f88949b2aadcfb1e360903d51 *R/cdfToApdMap.R
 1e1e6fae94b08162d0ba44eb55a3094c *R/celToApd.R
-185c21a0b4fdee65689ed3b4a5e1939b *R/createApd.R
+cfa28cecc730b346268aab9e58c6b7c7 *R/createApd.R
 5133a81f3da53a4d6199ea2ee2afbb16 *R/findApdMap.R
 ecbdcb13536868299319b33737503760 *R/gtypeCelToPQ.R
 e3173c6d3f7ed9da8b5b9edc386a38c2 *R/readApd.R
@@ -26,7 +26,7 @@ c04e36ad6c9e716d97c16cc3d581ee33 *R/zzz.R
 47a8c42d2262407f70d41929e744c953 *man/aroma.apd-package.Rd
 bd9d8a2548c6307e75768f8e27ee8d66 *man/cdfToApdMap.Rd
 c0fc483d7e0e915a7bf1f7515f8d0608 *man/celToApd.Rd
-e5761aa2be905f0137c91e0d46e5ddee *man/createApd.Rd
+83560a2924808efca109e085716b9936 *man/createApd.Rd
 1251dd9c7759cee494f6dc781f8d4a32 *man/findApdMap.Rd
 b8b37694989a51e2fbf8a78f687950d6 *man/gtypeCelToPQ.Rd
 9b75238a0672ac598b94efdc7b9df00f *man/readApd.Rd
