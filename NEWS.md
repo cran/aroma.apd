@@ -1,3 +1,10 @@
+# Version 0.7.1 (2025-04-06)
+
+## Miscellaneous
+
+ * Fix `DESCRIPTION` field `URL`.
+
+
 # Version 0.7.0 (2023-06-21)
 
 ## Miscellaneous
